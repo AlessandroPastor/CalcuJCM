@@ -29,9 +29,11 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.calcjpc.ui.theme.CalcJPCTheme
 
 class MainActivity : ComponentActivity() {
@@ -74,7 +76,13 @@ fun ScaffoldExample() {
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
                 title = {
-                    Text("Top app bar")
+                    Text(
+                        text = "Calculadora Pastor",
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontWeight = FontWeight.ExtraBold,
+                            letterSpacing = 1.5.sp
+                        )
+                    )
                 }
             )
         },
@@ -84,18 +92,17 @@ fun ScaffoldExample() {
                 contentColor = MaterialTheme.colorScheme.primary,
             ) {
                 Text(
-                    modifier = Modifier
-                        .fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    text = "Bottom app bar",
+                    text = "By Pastorino",
+                    style = MaterialTheme.typography.labelLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
                 )
             }
         },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { presses++ }) {
-                Icon(Icons.Default.Add, contentDescription = "Add")
-            }
-        }
+
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -117,11 +124,6 @@ fun ScaffoldExample() {
             )
             */
 
-
-            Spacer(modifier = Modifier.height(2.dp))
-            /*Button(onClick={}){
-                Text(text = "A")
-            }*/
             CalcUPeU()
         }
     }
