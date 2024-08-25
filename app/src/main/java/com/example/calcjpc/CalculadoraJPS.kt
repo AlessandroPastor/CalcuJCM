@@ -54,7 +54,7 @@ fun ButtonX(
         Box(
             modifier = modifier
                 .weight(1f)
-                .background(Color(0xFFFFFFFF))  // Cambiar fondo a blanco
+                .background(Color(0xFFFFFFFF))
                 .border(width = .5.dp, Color(0xFF2C2F32))
                 .clickable(
                     enabled = true,
@@ -100,8 +100,9 @@ fun ButtonX(
                                         "/" -> finalNumber = oldTextState.toDouble() / textState.toDouble()
                                         "+" -> finalNumber = oldTextState.toDouble() + textState.toDouble()
                                         "-" -> finalNumber = oldTextState.toDouble() - textState.toDouble()
+                                        "%" -> finalNumber = oldTextState.toDouble() % textState.toDouble()
                                     }
-                                    // Cambiamos el formatResult
+                                    // Redondeamos Aqui
                                     val formattedResult = if (finalNumber == finalNumber.toInt().toDouble()) {
                                         finalNumber.toInt().toString()
                                     } else {
@@ -112,6 +113,8 @@ fun ButtonX(
                                     onIsNewOpChange.invoke(true)
                                 }
                             }
+
+                            //Creamos las nuevas funcionalidades
                             "x2" -> {
                                 val number = textState.toDouble()
                                 val result = number * number
